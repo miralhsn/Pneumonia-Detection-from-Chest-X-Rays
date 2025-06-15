@@ -83,8 +83,8 @@ Grad-CAM (Gradient-weighted Class Activation Mapping) is used to highlight regio
 
 1. Clone this repo:
  ```bash
- git clone [https://github.com/miralhsn/pneumonia-detection.git](https://github.com/miralhsn/Pneumonia-Detection-from-Chest-X-Rays)
- cd pneumonia-detection
+ git clone https://github.com/miralhsn/Pneumonia-Detection-from-Chest-X-Rays
+ cd Pneumonia-Detection-from-Chest-X-Rays
 ```
 
 2. Install dependencies
