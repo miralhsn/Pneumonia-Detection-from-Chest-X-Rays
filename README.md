@@ -55,7 +55,7 @@ Grad-CAM (Gradient-weighted Class Activation Mapping) is used to highlight regio
 
 | Example | Heatmap |
 |--------|---------|
-| ![](person22_virus_54.jpeg) | ![](p22.jpeg) |
+| ![](samples/person22_virus_54.jpeg) | ![](samples/p22.jpeg) |
 
 🟥 **Red** regions = high importance  
 🟦 **Blue** regions = low importance
