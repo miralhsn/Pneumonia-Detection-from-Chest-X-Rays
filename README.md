@@ -1,91 +1,126 @@
-# 🫁 Pneumonia Detection from Chest X-Rays using CNN & Transfer Learning
+<h1 align="center">🫁 Pneumonia Detection System</h1>
 
-This project uses deep learning models to detect pneumonia from chest X-ray images. It includes both a custom Convolutional Neural Network (CNN) and a pre-trained MobileNetV2 model with transfer learning. Grad-CAM is applied for visual explanations.
+<h3 align="center">Deep Learning-Based Chest X-Ray Classification using CNN & MobileNetV2</h3>
+
+<p align="center">
+  <a href="https://YOUR-STREAMLIT-LINK.streamlit.app">
+    🚀 Live Demo
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Deep%20Learning-CNN%20%2B%20Transfer%20Learning-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Model-MobileNetV2-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Explainability-Grad--CAM-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Deployment-Streamlit-red?style=for-the-badge"/>
+</p>
 
 ---
 
-## 📂 Dataset
+## 🧠 Overview
 
-- **Source:** [Chest X-Ray Images (Pneumonia) dataset](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)
+This project uses **deep learning models** to detect pneumonia from chest X-ray images.
 
-## 🧠 Model Architectures
+It combines:
+- Custom CNN model
+- Transfer Learning using MobileNetV2
+- Model interpretability using Grad-CAM
 
-### 🔹 1. Custom CNN
-- 3 Convolution + MaxPooling layers
-- Dense layers with dropout
-- Activation: ReLU + Sigmoid
-- Output: Binary Classification (`NORMAL`, `PNEUMONIA`)
+---
 
-### 🔹 2. MobileNetV2 (Transfer Learning)
+## 🚀 Live Demo
+
+> Upload a chest X-ray and get instant prediction
+
+<p align="center">
+  <img src="assets/demo.gif" width="700"/>
+</p>
+
+---
+
+## 🏗️ Model Architecture
+
+### 🔹 CNN Model
+- 3 Convolution layers
+- MaxPooling layers
+- Dense + Dropout
+- Binary classification
+
+### 🔹 MobileNetV2 (Transfer Learning)
 - Pre-trained on ImageNet
-- Top layers removed
-- Custom head added:
-- Global Average Pooling
-- Dropout
-- Dense output layer
+- Custom classification head
+- Fine-tuned for medical images
 
 ---
 
-## 🏋️‍♀️ Training
+## 📊 Performance
 
-- **Image Size:** 224x224
-- **Augmentation:** Zoom, Shear, Horizontal Flip (for training)
-- **Optimizer:** Adam
-- **Loss:** Binary Crossentropy
-- **Epochs:** 25
-- **Batch Size:** 32
+| Model | Accuracy | Recall (PNEUMONIA) |
+|------|---------|--------------------|
+| CNN | 82% | 99% |
+| MobileNetV2 | 87% | 98% |
 
 ---
 
-## 📈 Results & Evaluation
+## 🔍 Explainability (Grad-CAM)
 
-| Metric        | CNN Model | MobileNetV2 |
-|---------------|-----------|-------------|
-| Test Accuracy | 82%       | 87%         |
-| Recall (PNEU) | 99%       | 98%         |
-| Precision (NORM) | 98%    | 96%         |
+Grad-CAM highlights regions in X-rays that influenced predictions.
 
-> 📌 Both models perform well, with MobileNetV2 showing slightly better generalization and fewer false positives.
+- 🟥 Red → Important regions  
+- 🟦 Blue → Less important regions  
 
 ---
 
-## 🔍 Grad-CAM Visualizations
+## ⚙️ Tech Stack
 
-Grad-CAM (Gradient-weighted Class Activation Mapping) is used to highlight regions of X-ray images that influenced the model's decision.
-
-| Example | Heatmap |
-|--------|---------|
-| ![](samples/person22_virus_54.jpeg) | ![](samples/p22.png) |
-
-🟥 **Red** regions = high importance  
-🟦 **Blue** regions = low importance
+- Python  
+- TensorFlow / Keras  
+- OpenCV  
+- Streamlit  
+- Grad-CAM  
 
 ---
 
-## 📊 Observations
+## 🧩 Challenges
 
-- **CNN Model** performed well but overfitted slightly.
-- **MobileNetV2** generalized better and required fewer resources.
-- Grad-CAM helped verify that the model focuses on lungs, supporting interpretability.
-
----
-
-## ❗ Challenges & Lessons Learned
-
-- Class imbalance impacted early CNN training.
-- Transfer learning improved results with fewer epochs.
-- Grad-CAM debugging required careful layer naming.
-- Dataset preprocessing (resizing, normalization) was critical for stability.
+- Handling class imbalance  
+- Preventing overfitting in CNN  
+- Improving generalization using transfer learning  
+- Interpreting medical predictions  
 
 ---
 
-## 🚀 How to Run
+## 🔮 Future Improvements
 
-1. Clone this repo:
- ```bash
- git clone https://github.com/miralhsn/Pneumonia-Detection-from-Chest-X-Rays
- cd Pneumonia-Detection-from-Chest-X-Rays
-```
+- Multi-class disease classification  
+- Integration with hospital systems  
+- Improved explainability dashboards  
+- Deployment on edge devices  
 
-2. Install dependencies
-3. Run training or inference via Colab or your local Jupyter setup
+---
+
+## 🧠 Why This Project Matters
+
+This project demonstrates:
+
+- Real-world medical AI application  
+- CNN + Transfer learning expertise  
+- Model interpretability (Grad-CAM)  
+- End-to-end deployment capability  
+
+---
+
+## 👨‍💻 Author
+
+**Miral Hasan**
+
+<p align="center">
+  <a href="https://github.com/miralhsn">GitHub</a> •
+  <a href="https://linkedin.com/in/miral-hasan-26353b249">LinkedIn</a>
+</p>
+
+---
+
+<p align="center">
+  ⭐ If you like this project, consider giving it a star!
+</p>
