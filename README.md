@@ -5,66 +5,81 @@ Deep Learning-Based Chest X-Ray Classification using CNN & Transfer Learning
 </h3>
 
 <p align="center">
+  <a href="https://pneumonia-detection-from-chest-x-rays.streamlit.app/">
+    🚀 Live Demo
+  </a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Deep%20Learning-CNN%20%2B%20MobileNetV2-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Explainability-Grad--CAM-orange?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Medical%20AI-X--Ray%20Classification-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Deployment-Streamlit-green?style=for-the-badge"/>
 </p>
 
 ---
 
 ## 🧠 Overview
 
-This project is a **medical AI system** that detects pneumonia from chest X-rays using deep learning.
+This project is a **deep learning-based medical imaging system** that detects pneumonia from chest X-rays.
 
-It combines:
-- 🧠 Custom CNN model
-- ⚡ MobileNetV2 (Transfer Learning)
-- 🔍 Grad-CAM explainability for medical transparency
+It demonstrates an end-to-end AI pipeline including:
+- Image preprocessing
+- Deep learning classification
+- Transfer learning optimization
+- Real-time web deployment
 
 ---
 
-## 🫁 Sample Predictions (Grad-CAM)
+## 🚀 Live Demo
 
-<p align="center">
-  <img src="samples/person22_virus_54.jpeg" width="350"/>
-  <img src="samples/p22.png" width="350"/>
-</p>
+👉 https://pneumonia-detection-from-chest-x-rays.streamlit.app/
 
-> 🔴 Red areas show lung regions influencing the model decision
+Upload a chest X-ray image and receive instant AI-based diagnosis.
 
 ---
 
 ## 🏗️ Model Architectures
 
-### 🔹 CNN Model
-- 3 Convolution layers + MaxPooling
-- Dense layers with dropout
-- Binary classification (NORMAL / PNEUMONIA)
+### 🔹 Custom CNN
+- 3 Convolution + MaxPooling layers  
+- Fully connected dense layers  
+- Dropout regularization  
+- Binary classification: NORMAL / PNEUMONIA  
 
 ### 🔹 MobileNetV2 (Transfer Learning)
-- Pre-trained on ImageNet
-- Fine-tuned for chest X-rays
-- Lightweight + high accuracy
+- Pre-trained on ImageNet  
+- Lightweight architecture  
+- Fine-tuned for medical imaging  
+- Improved generalization performance  
 
 ---
 
-## 📊 Performance Comparison
+## 📊 Model Performance
 
 | Model | Accuracy | Recall (PNEUMONIA) | Notes |
 |------|---------|---------------------|------|
-| CNN | 82% | 99% | Slight overfitting |
-| MobileNetV2 | 87% | 98% | Better generalization |
+| CNN | 82% | 99% | Overfitting observed |
+| MobileNetV2 | 87% | 98% | Best generalization |
 
 ---
 
 ## 🔍 Explainability (Grad-CAM)
 
-Grad-CAM highlights the regions of the X-ray that influenced predictions.
+Grad-CAM is used to visualize **model decision regions**.
 
-- 🟥 Red → High importance regions  
-- 🟦 Blue → Low importance regions  
+- 🔴 Red → High importance (lung infection regions)  
+- 🔵 Blue → Low importance  
 
-This ensures **medical interpretability**, not just prediction.
+This ensures **interpretability in medical AI systems**, which is critical for real-world usage.
+
+---
+
+## 🫁 Sample Predictions
+
+<p align="center">
+  <img src="samples/person22_virus_54.jpeg" width="350"/>
+  <img src="samples/p22.png" width="350"/>
+</p>
 
 ---
 
@@ -75,16 +90,16 @@ This ensures **medical interpretability**, not just prediction.
 - OpenCV  
 - NumPy  
 - Matplotlib  
-- Grad-CAM  
+- Streamlit (Deployment)
 
 ---
 
-## 📊 Key Insights
+## 📌 Key Insights
 
-- Transfer learning significantly improved generalization  
-- CNN model overfitted on training data  
-- Grad-CAM validated that model focuses on lung regions  
-- Proper preprocessing was critical for stability  
+- Transfer learning significantly improves generalization  
+- CNN baseline showed overfitting on small dataset  
+- Proper preprocessing is critical for medical imaging  
+- Explainability improves trust in predictions  
 
 ---
 
@@ -92,17 +107,17 @@ This ensures **medical interpretability**, not just prediction.
 
 - Class imbalance in dataset  
 - Overfitting in custom CNN  
-- Interpreting medical predictions  
-- Fine-tuning MobileNetV2 for grayscale images  
+- Medical image preprocessing complexity  
+- Balancing accuracy vs generalization  
 
 ---
 
 ## 🔮 Future Improvements
 
-- Web deployment for real-time diagnosis  
-- Multi-disease classification (COVID, TB, etc.)  
-- Hospital integration system  
-- Advanced explainability dashboards  
+- Multi-disease classification (TB, COVID-19, etc.)  
+- Hospital-grade deployment pipeline  
+- Advanced explainability dashboard  
+- API-based integration (FastAPI backend)  
 
 ---
 
@@ -110,10 +125,11 @@ This ensures **medical interpretability**, not just prediction.
 
 This project demonstrates:
 
-- Real-world medical AI application  
-- Deep learning + transfer learning expertise  
-- Model interpretability (critical in healthcare AI)  
-- End-to-end ML pipeline development  
+- End-to-end machine learning system design  
+- Medical AI application development  
+- Transfer learning expertise  
+- Model interpretability (XAI)  
+- Production deployment using Streamlit  
 
 ---
 
@@ -129,5 +145,5 @@ This project demonstrates:
 ---
 
 <p align="center">
-⭐ If you find this project useful, consider starring the repository!
+⭐ If you like this project, consider giving it a star!
 </p>
