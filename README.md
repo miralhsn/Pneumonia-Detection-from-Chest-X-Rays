@@ -1,73 +1,70 @@
 <h1 align="center">🫁 Pneumonia Detection System</h1>
 
-<h3 align="center">Deep Learning-Based Chest X-Ray Classification using CNN & MobileNetV2</h3>
+<h3 align="center">
+Deep Learning-Based Chest X-Ray Classification using CNN & Transfer Learning
+</h3>
 
 <p align="center">
-  <a href="https://YOUR-STREAMLIT-LINK.streamlit.app">
-    🚀 Live Demo
-  </a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Deep%20Learning-CNN%20%2B%20Transfer%20Learning-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Model-MobileNetV2-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Deep%20Learning-CNN%20%2B%20MobileNetV2-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Explainability-Grad--CAM-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Deployment-Streamlit-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Medical%20AI-X--Ray%20Classification-red?style=for-the-badge"/>
 </p>
 
 ---
 
 ## 🧠 Overview
 
-This project uses **deep learning models** to detect pneumonia from chest X-ray images.
+This project is a **medical AI system** that detects pneumonia from chest X-rays using deep learning.
 
 It combines:
-- Custom CNN model
-- Transfer Learning using MobileNetV2
-- Model interpretability using Grad-CAM
+- 🧠 Custom CNN model
+- ⚡ MobileNetV2 (Transfer Learning)
+- 🔍 Grad-CAM explainability for medical transparency
 
 ---
 
-## 🚀 Live Demo
-
-> Upload a chest X-ray and get instant prediction
+## 🫁 Sample Predictions (Grad-CAM)
 
 <p align="center">
-  <img src="assets/demo.gif" width="700"/>
+  <img src="samples/person22_virus_54.jpeg" width="350"/>
+  <img src="samples/p22.png" width="350"/>
 </p>
+
+> 🔴 Red areas show lung regions influencing the model decision
 
 ---
 
-## 🏗️ Model Architecture
+## 🏗️ Model Architectures
 
 ### 🔹 CNN Model
-- 3 Convolution layers
-- MaxPooling layers
-- Dense + Dropout
-- Binary classification
+- 3 Convolution layers + MaxPooling
+- Dense layers with dropout
+- Binary classification (NORMAL / PNEUMONIA)
 
 ### 🔹 MobileNetV2 (Transfer Learning)
 - Pre-trained on ImageNet
-- Custom classification head
-- Fine-tuned for medical images
+- Fine-tuned for chest X-rays
+- Lightweight + high accuracy
 
 ---
 
-## 📊 Performance
+## 📊 Performance Comparison
 
-| Model | Accuracy | Recall (PNEUMONIA) |
-|------|---------|--------------------|
-| CNN | 82% | 99% |
-| MobileNetV2 | 87% | 98% |
+| Model | Accuracy | Recall (PNEUMONIA) | Notes |
+|------|---------|---------------------|------|
+| CNN | 82% | 99% | Slight overfitting |
+| MobileNetV2 | 87% | 98% | Better generalization |
 
 ---
 
 ## 🔍 Explainability (Grad-CAM)
 
-Grad-CAM highlights regions in X-rays that influenced predictions.
+Grad-CAM highlights the regions of the X-ray that influenced predictions.
 
-- 🟥 Red → Important regions  
-- 🟦 Blue → Less important regions  
+- 🟥 Red → High importance regions  
+- 🟦 Blue → Low importance regions  
+
+This ensures **medical interpretability**, not just prediction.
 
 ---
 
@@ -76,26 +73,36 @@ Grad-CAM highlights regions in X-rays that influenced predictions.
 - Python  
 - TensorFlow / Keras  
 - OpenCV  
-- Streamlit  
+- NumPy  
+- Matplotlib  
 - Grad-CAM  
 
 ---
 
-## 🧩 Challenges
+## 📊 Key Insights
 
-- Handling class imbalance  
-- Preventing overfitting in CNN  
-- Improving generalization using transfer learning  
+- Transfer learning significantly improved generalization  
+- CNN model overfitted on training data  
+- Grad-CAM validated that model focuses on lung regions  
+- Proper preprocessing was critical for stability  
+
+---
+
+## ⚠️ Challenges
+
+- Class imbalance in dataset  
+- Overfitting in custom CNN  
 - Interpreting medical predictions  
+- Fine-tuning MobileNetV2 for grayscale images  
 
 ---
 
 ## 🔮 Future Improvements
 
-- Multi-class disease classification  
-- Integration with hospital systems  
-- Improved explainability dashboards  
-- Deployment on edge devices  
+- Web deployment for real-time diagnosis  
+- Multi-disease classification (COVID, TB, etc.)  
+- Hospital integration system  
+- Advanced explainability dashboards  
 
 ---
 
@@ -104,9 +111,9 @@ Grad-CAM highlights regions in X-rays that influenced predictions.
 This project demonstrates:
 
 - Real-world medical AI application  
-- CNN + Transfer learning expertise  
-- Model interpretability (Grad-CAM)  
-- End-to-end deployment capability  
+- Deep learning + transfer learning expertise  
+- Model interpretability (critical in healthcare AI)  
+- End-to-end ML pipeline development  
 
 ---
 
@@ -122,5 +129,5 @@ This project demonstrates:
 ---
 
 <p align="center">
-  ⭐ If you like this project, consider giving it a star!
+⭐ If you find this project useful, consider starring the repository!
 </p>
