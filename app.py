@@ -19,22 +19,44 @@ st.title("🫁 Pneumonia Detection System")
 st.markdown("Upload a chest X-ray image and get AI-based prediction with confidence score.")
 
 # -------------------------
-# LOAD MODEL (cached for speed)
+# BUILD MODEL (must match training architecture EXACTLY)
+# -------------------------
+def build_model():
+    base_model = tf.keras.applications.MobileNetV2(
+        weights="imagenet",
+        include_top=False,
+        input_shape=(224, 224, 3)
+    )
+
+    base_model.trainable = False
+
+    x = tf.keras.layers.GlobalAveragePooling2D()(base_model.output)
+    x = tf.keras.layers.Dropout(0.5)(x)
+    output = tf.keras.layers.Dense(1, activation="sigmoid")(x)
+
+    model = tf.keras.Model(inputs=base_model.input, outputs=output)
+    return model
+
+
+# -------------------------
+# LOAD MODEL WEIGHTS
 # -------------------------
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("model.keras")
+    model = build_model()
+    model.load_weights("model.weights.h5")
+    return model
 
 model = load_model()
 
 # -------------------------
-# PREPROCESS FUNCTION
+# IMAGE PREPROCESSING
 # -------------------------
 def preprocess_image(img):
     img = img.resize((224, 224))
     img = np.array(img)
 
-    # convert grayscale → RGB if needed
+    # grayscale → RGB fix
     if len(img.shape) == 2:
         img = np.stack((img,) * 3, axis=-1)
 
@@ -42,13 +64,14 @@ def preprocess_image(img):
     img = np.expand_dims(img, axis=0)
     return img
 
+
 # -------------------------
-# SIDEBAR INFO
+# SIDEBAR
 # -------------------------
 st.sidebar.title("ℹ️ About")
 st.sidebar.info(
-    "This AI model detects pneumonia from chest X-rays using a MobileNetV2-based deep learning model. "
-    "It is for educational purposes only."
+    "AI model for pneumonia detection using MobileNetV2 + transfer learning. "
+    "For educational use only."
 )
 
 # -------------------------
@@ -69,20 +92,19 @@ if uploaded_file:
 
     # prediction
     prediction = model.predict(processed_img)[0][0]
+    confidence = float(prediction)
 
     # -------------------------
-    # RESULT DISPLAY
+    # RESULT
     # -------------------------
     st.subheader("🧠 Prediction Result")
 
-    confidence = float(prediction)
-
     if confidence > 0.5:
         st.error("⚠️ Pneumonia Detected")
-        st.write("The model predicts signs of infection in the lungs.")
+        st.write("Model indicates signs of infection in lungs.")
     else:
         st.success("✅ Normal")
-        st.write("No visible signs of pneumonia detected.")
+        st.write("No pneumonia detected.")
 
     # -------------------------
     # CONFIDENCE SCORE
@@ -99,3 +121,9 @@ if uploaded_file:
         st.info("Moderate confidence prediction")
     else:
         st.success("Low risk prediction")
+
+# -------------------------
+# FOOTER
+# -------------------------
+st.markdown("---")
+st.markdown("Built with Streamlit + TensorFlow 🧠 | Miral Hasan")
